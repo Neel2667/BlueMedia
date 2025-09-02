@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueMedia - Video Marketing Agency | Creating Viral Reels for Small Businesses</title>
+    <meta name="description" content="BlueMedia transforms your raw footage into viral Instagram, TikTok, and YouTube Shorts. Professional reel editing services for small businesses across all industries.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --background: hsl(210, 11%, 4%);
+            --foreground: hsl(213, 31%, 91%);
+            --card: hsl(210, 11%, 7%);
+            --card-foreground: hsl(213, 31%, 91%);
+            --primary: hsl(217, 91%, 60%);
+            --primary-foreground: hsl(210, 40%, 98%);
+            --secondary: hsl(210, 11%, 11%);
+            --secondary-foreground: hsl(213, 31%, 91%);
+            --muted: hsl(210, 11%, 11%);
+            --muted-foreground: hsl(215, 20%, 65%);
+            --accent: hsl(189, 100%, 50%);
+            --accent-foreground: hsl(210, 40%, 2%);
+            --border: hsl(210, 11%, 15%);
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 10, 17, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-foreground);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--muted-foreground);
+            text-decoration: none;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: var(--primary-foreground);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px hsla(217, 91%, 60%, 0.3);
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: hsl(217, 91%, 55%);
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px hsla(217, 91%, 60%, 0.4);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--foreground);
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--background) 0%, var(--secondary) 50%, var(--background) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, hsla(217, 91%, 60%, 0.05) 0%, transparent 50%, hsla(189, 100%, 50%, 0.05) 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--muted-foreground);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--primary-foreground);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px hsla(217, 91%, 60%, 0.3);
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: hsl(217, 91%, 55%);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 0 30px hsla(217, 91%, 60%, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--foreground);
+            padding: 1rem 2rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Phone Animation */
+        .phone-mockup {
+            width: 250px;
+            height: 500px;
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            border-radius: 3rem;
+            padding: 1rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            animation: phoneFloat 6s ease-in-out infinite;
+            position: relative;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 2.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .phone-content {
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=700') center/cover;
+        }
+
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, hsla(217, 91%, 60%, 0.9), hsla(189, 100%, 50%, 0.7));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-button {
+            width: 4rem;
+            height: 4rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Floating Social Icons */
+        .floating-icon {
+            position: absolute;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: logoFloat 4s ease-in-out infinite;
+        }
+
+        .icon-instagram {
+            top: 25%;
+            left: 10%;
+            background: linear-gradient(45deg, #E4405F, #F77737);
+        }
+
+        .icon-tiktok {
+            top: 33%;
+            right: 10%;
+            background: linear-gradient(45deg, #FF0050, #9B59B6);
+            animation-delay: -2s;
+        }
+
+        .icon-youtube {
+            bottom: 33%;
+            left: 20%;
+            background: linear-gradient(45deg, #FF0000, #C62828);
+            animation-delay: -4s;
+        }
+
+        /* Animations */
+        @keyframes phoneFloat {
+            0%, 100% { transform: translateY(0px) rotateY(-5deg); }
+            50% { transform: translateY(-20px) rotateY(5deg); }
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-15px) rotate(5deg); }
+            66% { transform: translateY(-10px) rotate(-5deg); }
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-description {
+            font-size: 1.25rem;
+            color: var(--muted-foreground);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .glow-card {
+            background: linear-gradient(135deg, var(--card) 0%, hsl(210, 11%, 9%) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .glow-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 30px hsla(217, 91%, 60%, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .card-description {
+            color: var(--muted-foreground);
+        }
+
+        /* Industry Cards */
+        .industry-card {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .industry-card:hover {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--primary-foreground);
+        }
+
+        .industry-card:hover .card-description {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .portfolio-item {
+            aspect-ratio: 9/16;
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-info {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+        }
+
+        .portfolio-title {
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .portfolio-stats {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.75rem;
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary);
+            background: linear-gradient(135deg, hsl(210, 11%, 9%) 0%, hsl(217, 91%, 10%) 100%);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--primary-foreground);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .pricing-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-description {
+            color: var(--muted-foreground);
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-period {
+            font-size: 1rem;
+            color: var(--muted-foreground);
+            font-weight: normal;
+        }
+
+        .pricing-reels {
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .check-icon {
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+
+        /* Testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-rating {
+            display: flex;
+            gap: 0.25rem;
+            margin-bottom: 1.5rem;
+            justify-content: center;
+        }
+
+        .star {
+            color: #FFD700;
+            font-size: 1.25rem;
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-name {
+            font-weight: 600;
+        }
+
+        .author-title {
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+        }
+
+        /* Contact Form */
+        .contact-section {
+            background: linear-gradient(135deg, hsla(217, 91%, 60%, 0.1) 0%, var(--background) 50%, hsla(189, 100%, 50%, 0.1) 100%);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--foreground);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px hsla(217, 91%, 60%, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-button {
+            width: 100%;
+            background: var(--primary);
+            color: var(--primary-foreground);
+            padding: 1rem;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px hsla(217, 91%, 60%, 0.3);
+        }
+
+        .submit-button:hover {
+            background: hsl(217, 91%, 55%);
+            box-shadow: 0 0 30px hsla(217, 91%, 60%, 0.4);
+        }
+
+        /* Contact Options */
+        .contact-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+
+        .contact-option:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .contact-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .contact-info h4 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-info p {
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--card);
+            border-top: 1px solid var(--border);
+            padding: 3rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-description {
+            color: var(--muted-foreground);
+            margin-bottom: 1.5rem;
+            max-width: 400px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--secondary);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--foreground);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
+            color: var(--muted-foreground);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-link:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--muted-foreground);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .bg-secondary {
+            background: rgba(33, 39, 46, 0.3);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Success Message */
+        .success-message {
+            background: #10B981;
+            color: white;
+            padding: 1rem;
+            border-radius: var(--radius);
+            margin-top: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <span class="logo-text">BlueMedia</span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#industries" class="nav-link">Industries</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <div>
+                    <a href="#contact" class="cta-button">Book Strategy Call</a>
+                    <button class="mobile-menu" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-icon icon-instagram">
+            <i class="fab fa-instagram"></i>
+        </div>
+        <div class="floating-icon icon-tiktok">
+            <i class="fab fa-tiktok"></i>
+        </div>
+        <div class="floating-icon icon-youtube">
+            <i class="fab fa-youtube"></i>
+        </div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>We Create <span class="gradient-text">Reels</span> That Bring <span class="gradient-text">Customers</span> to Your Door</h1>
+                    <p>We turn your raw footage into viral content for Instagram, TikTok, and YouTube Shorts. Helping local businesses go viral, one reel at a time.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn-primary">Get Started Today</a>
+                        <a href="#portfolio" class="btn-secondary">View Our Work</a>
+                    </div>
+                </div>
+                
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="phone-content"></div>
+                        <div class="play-overlay">
+                            <div class="play-button">
+                                <i class="fas fa-play" style="color: white; margin-left: 3px;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section bg-secondary">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Your Creative <span class="gradient-text">Growth Partner</span></h2>
+                <p class="section-description">We're not just another video agency. We're your creative partners, specializing in transforming small businesses through the power of viral short-form content. Every reel we create is designed to drive real results.</p>
+            </div>
+            
+            <div class="card-grid">
+                <div class="glow-card">
+                    <div class="card-icon" style="background: hsla(217, 91%, 60%, 0.2);">
+                        <i class="fas fa-video" style="color: var(--primary);"></i>
+                    </div>
+                    <h3 class="card-title">Raw to Viral</h3>
+                    <p class="card-description">We transform your everyday business footage into scroll-stopping content that converts viewers into customers.</p>
+                </div>
+                
+                <div class="glow-card">
+                    <div class="card-icon" style="background: hsla(189, 100%, 50%, 0.2);">
+                        <i class="fas fa-chart-line" style="color: var(--accent);"></i>
+                    </div>
+                    <h3 class="card-title">Proven Results</h3>
+                    <p class="card-description">Our reels consistently deliver 5-10x more engagement than regular posts, driving real foot traffic and sales.</p>
+                </div>
+                
+                <div class="glow-card">
+                    <div class="card-icon" style="background: hsla(270, 60%, 50%, 0.2);">
+                        <i class="fas fa-handshake" style="color: #A855F7;"></i>
+                    </div>
+                    <h3 class="card-title">Local Focus</h3>
+                    <p class="card-description">We understand small businesses. Every reel is crafted to connect with your local community and drive meaningful growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our <span class="gradient-text">Reel Services</span></h2>
+                <p class="section-description">From raw footage to viral content - we handle everything so you can focus on running your business.</p>
+            </div>
+            
+            <div class="card-grid">
+                <div class="glow-card">
+                    <div class="card-icon" style="background: hsla(217, 91%, 60%, 0.2);">
+                        <i class="fas fa-cut" style="color: var(--primary);"></i>
+                    </div>
+                    <h3 class="card-title">Reel Editing from Raw Footage</h3>
+                    <p class="card-description">Send us your phone videos and we'll transform them into professional, engaging reels that stop the scroll.</p>
+                    <ul style="text-align: left; margin-top: 1rem; color: var(--muted-foreground); font-size: 0.875rem;">
+                        <li>• Professional color grading</li>
+                        <li>• Dynamic transitions</li>
+                        <li>• Optimal pacing for engagement</li>
+                    </ul>
+                </div>
+                
+                <div class="glow-card">
+                    <div class="card-icon" style="background: hsla(217, 91%, 60%, 0.2);">
+                        <i class="fas fa-fire" style="color: var(--primary);"></i>
+                    </div>
+                    <h3 class="card-title">Trend-Based Reels Creation</h3>
+                    <p class="card-description">We stay on top of viral trends and adapt them to showcase your business in fresh, engaging ways.</p>
+                    <ul style="text-align: left; margin-top: 1rem; color: var(--muted-foreground); font-size: 0.875rem;">
+                        <li>• Latest trending formats</li>
+                        <li>• Viral audio integration</li>
+                        <li>• Trend adaptation for your niche</li>
+                    </ul>
+                </div>
+                
+                <div class="glow-card">
+                    <div class="card-icon" style="background: hsla(217, 91%, 60%, 0.2);">
+                        <i class="fas fa-font" style="color: var(--primary);"></i>
+                    </div>
+                    <h3 class="card-title">Captions + Subtitles + Emojis</h3>
+                    <p class="card-description">Eye-catching captions and subtitles that ensure your message is heard, even on mute.</p>
+                    <ul style="text-align: left; margin-top: 1rem; color: var(--muted-foreground); font-size: 0.875rem;">
+                        <li>• Animated text overlays</li>
+                        <li>• Strategic emoji placement</li>
+                        <li>• Accessibility compliance</li>
+                    </ul>
+                </div>
+                
+                <div class="glow-card">
+                    <div class="card-icon" style="background: hsla(217, 91%, 60%, 0.2);">
+                        <i class="fas fa-palette" style="color: var(--primary);"></i>
+                    </div>
+                    <h3 class="card-title">Branded Reel Templates</h3>
+                    <p class="card-description">Custom templates featuring your logo, brand colors, and music that make your content instantly recognizable.</p>
+                    <ul style="text-align: left; margin-top: 1rem; color: var(--muted-foreground); font-size: 0.875rem;">
+                        <li>• Logo integration</li>
+                        <li>• Brand color schemes</li>
+                        <li>• Custom music selection</li>
+                    </ul>
+                </div>
+                
+                <div class="glow-card">
+                    <div class="card-icon" style="background: hsla(217, 91%, 60%, 0.2);">
+                        <i class="fas fa-calendar" style="color: var(--primary);"></i>
+                    </div>
+                    <h3 class="card-title">Monthly Reel Packages</h3>
+                    <p class="card-description">Consistent content delivery with packages designed to keep your audience engaged month after month.</p>
+                    <ul style="text-align: left; margin-top: 1rem; color: var(--muted-foreground); font-size: 0.875rem;">
+                        <li>• 4, 8, or 12 reels per month</li>
+                        <li>• Content calendar planning</li>
+                        <li>• Performance optimization</li>
+                    </ul>
+                </div>
+                
+                <div class="glow-card">
+                    <div class="card-icon" style="background: hsla(217, 91%, 60%, 0.2);">
+                        <i class="fas fa-rocket" style="color: var(--primary);"></i>
+                    </div>
+                    <h3 class="card-title">Growth Strategy Consultation</h3>
+                    <p class="card-description">Beyond editing - we provide strategic guidance to maximize your social media impact and ROI.</p>
+                    <ul style="text-align: left; margin-top: 1rem; color: var(--muted-foreground); font-size: 0.875rem;">
+                        <li>• Content strategy development</li>
+                        <li>• Posting schedule optimization</li>
+                        <li>• Performance analytics review</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section id="industries" class="section bg-secondary">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Industries We <span class="gradient-text">Dominate</span></h2>
+                <p class="section-description">We've mastered the art of creating viral content across diverse industries, each with unique strategies that drive results.</p>
+            </div>
+            
+            <div class="card-grid">
+                <div class="glow-card industry-card">
+                    <div class="card-icon" style="background: hsla(217, 91%, 60%, 0.2);">
+                        <i class="fas fa-cut" style="color: var(--primary);"></i>
+                    </div>
+                    <h3 class="card-title">Barber Shops & Salons</h3>
+                    <p class="card-description">Reels that showcase transformations and bring new clients through your door.</p>
+                </div>
+                
+                <div class="glow-card industry-card">
+                    <div class="card-icon" style="background: hsla(189, 100%, 50%, 0.2);">
+                        <i class="fas fa-home" style="color: var(--accent);"></i>
+                    </div>
+                    <h3 class="card-title">Real Estate Agents</h3>
+                    <p class="card-description">Reels that sell homes faster with stunning property tours and market insights.</p>
+                </div>
+                
+                <div class="glow-card industry-card">
+                    <div class="card-icon" style="background: hsla(120, 60%, 50%, 0.2);">
+                        <i class="fas fa-stethoscope" style="color: #10B981;"></i>
+                    </div>
+                    <h3 class="card-title">Doctors & Clinics</h3>
+                    <p class="card-description">Educational reels that build trust and attract patients to your practice.</p>
+                </div>
+                
+                <div class="glow-card industry-card">
+                    <div class="card-icon" style="background: hsla(30, 80%, 50%, 0.2);">
+                        <i class="fas fa-dumbbell" style="color: #F97316;"></i>
+                    </div>
+                    <h3 class="card-title">Fitness & Gyms</h3>
+                    <p class="card-description">Motivational reels featuring workouts and transformations that inspire memberships.</p>
+                </div>
+                
+                <div class="glow-card industry-card">
+                    <div class="card-icon" style="background: hsla(270, 60%, 50%, 0.2);">
+                        <i class="fas fa-utensils" style="color: #A855F7;"></i>
+                    </div>
+                    <h3 class="card-title">Restaurants & Cafes</h3>
+                    <p class="card-description">Mouth-watering reels that make customers crave your food and visit your location.</p>
+                </div>
+                
+                <div class="glow-card industry-card">
+                    <div class="card-icon" style="background: hsla(330, 60%, 50%, 0.2);">
+                        <i class="fas fa-store" style="color: #EC4899;"></i>
+                    </div>
+                    <h3 class="card-title">Local Shops & Retail</h3>
+                    <p class="card-description">Product showcase reels that highlight your unique offerings and drive local sales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our <span class="gradient-text">Viral Portfolio</span></h2>
+                <p class="section-description">See how we've helped small businesses across different industries achieve viral success and drive real growth.</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1622286346003-c3d4e770fa58?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600" alt="Barber Shop Transformation" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <div class="play-button">
+                            <i class="fas fa-play" style="color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-title">Barber Shop</div>
+                        <div class="portfolio-stats">2.3M views • 450K likes</div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600" alt="Real Estate Tour" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <div class="play-button">
+                            <i class="fas fa-play" style="color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-title">Real Estate</div>
+                        <div class="portfolio-stats">1.8M views • 320K likes</div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600" alt="Fitness Workout" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <div class="play-button">
+                            <i class="fas fa-play" style="color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-title">Fitness Center</div>
+                        <div class="portfolio-stats">3.1M views • 680K likes</div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600" alt="Restaurant Food" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <div class="play-button">
+                            <i class="fas fa-play" style="color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-title">Restaurant</div>
+                        <div class="portfolio-stats">2.7M views • 540K likes</div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600" alt="Medical Practice" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <div class="play-button">
+                            <i class="fas fa-play" style="color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-title">Healthcare</div>
+                        <div class="portfolio-stats">1.9M views • 380K likes</div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600" alt="Retail Store" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <div class="play-button">
+                            <i class="fas fa-play" style="color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-title">Retail</div>
+                        <div class="portfolio-stats">1.5M views • 290K likes</div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1562788869-4ed32648eb72?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600" alt="Beauty Salon" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <div class="play-button">
+                            <i class="fas fa-play" style="color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-title">Beauty Salon</div>
+                        <div class="portfolio-stats">2.1M views • 420K likes</div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600" alt="Gym Training" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <div class="play-button">
+                            <i class="fas fa-play" style="color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-title">Gym</div>
+                        <div class="portfolio-stats">2.8M views • 590K likes</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#contact" class="btn-primary">View Full Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Reels Section -->
+    <section class="section" style="background: linear-gradient(90deg, hsla(217, 91%, 60%, 0.1) 0%, hsla(189, 100%, 50%, 0.05) 50%, hsla(217, 91%, 60%, 0.1) 100%);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                <div>
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Why <span class="gradient-text">Reels Work</span> for Small Business</h2>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 2rem;">
+                        <div style="display: flex; gap: 1rem;">
+                            <div class="card-icon" style="background: hsla(217, 91%, 60%, 0.2); flex-shrink: 0;">
+                                <i class="fas fa-eye" style="color: var(--primary);"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">90% Higher Reach</h3>
+                                <p style="color: var(--muted-foreground);">Instagram Reels get 22% more engagement than regular posts and reach 90% more people in your local area.</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; gap: 1rem;">
+                            <div class="card-icon" style="background: hsla(189, 100%, 50%, 0.2); flex-shrink: 0;">
+                                <i class="fas fa-users" style="color: var(--accent);"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">3x More Customer Attraction</h3>
+                                <p style="color: var(--muted-foreground);">Short-form videos convert 3x better than static posts, driving real foot traffic to your business.</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; gap: 1rem;">
+                            <div class="card-icon" style="background: hsla(270, 60%, 50%, 0.2); flex-shrink: 0;">
+                                <i class="fas fa-chart-line" style="color: #A855F7;"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Algorithm Advantage</h3>
+                                <p style="color: var(--muted-foreground);">Social platforms prioritize video content, giving your business 10x more visibility in feeds and explore pages.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Professional video production setup" style="width: 100%; border-radius: var(--radius); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Choose Your <span class="gradient-text">Growth Package</span></h2>
+                <p class="section-description">Flexible packages designed to scale with your business goals. All packages include branded templates, captions, and fast turnaround times.</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="glow-card pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Starter</h3>
+                        <p class="pricing-description">Perfect for testing the waters</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <div class="pricing-price">$297<span class="pricing-period">/month</span></div>
+                        <p class="pricing-reels">4 reels per month</p>
+                    </div>
+                    
+                    <ul class="pricing-features">
+                        <li class="pricing-feature">
+                            <i class="fas fa-check check-icon"></i>
+                            <span>4 professional reels monthly</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check check-icon"></i>
+                            <span>Branded templates & colors</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check check-icon"></i>
+                            <span>Captions & trending hashtags</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check check-icon"></i>
+                            <span>3-day turnaround</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check check-icon"></i>
+                            <span>Email support</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="#contact" class="btn-secondary" style="width: 100%; text-align: center; display: block; padding: 1rem;">Get Started</a>
+                </div>
+                
+                <div class="glow-card pricing-card featured">
+                    <div class="featured-badge">Most Popular</div>
+                    
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Growth</h3>
+                        <p class="pricing-description">For serious growth acceleration</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <div class="pricing-price">$497<span class="pricing-period">/month</span></div>
+                        <p class="pricing-reels">8 reels per month</p>
+                    </div>
+                    
+                    <ul class="pricing-features">
+                        <li class="pricing-feature">
+                            <i class="fas fa-check check-icon"></i>
+                            <span>8 professional reels monthly</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check check-icon"></i>
+                            <span>Custom branded templates</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check check-icon"></i>
+                            <span>Trend research & implementation</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check check-icon"></i>
+                            <span>2-day turnaround</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check check-icon"></i>
+                            <span>Priority support</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check check-icon"></i>
+                            <span>Monthly strategy call</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="#contact" class="btn-primary" style="width: 100%; text-align: center; display: block; padding: 1rem;">Start Growing</a>
+                </div>
+                
+                <div class="glow-card pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Premium</h3>
+                        <p class="pricing-description">Maximum viral potential</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <div class="pricing-price">$797<span class="pricing-period">/month</span></div>
+                        <p class="pricing-reels">12 reels per month</p>
+                    </div>
+                    
+                    <ul class="pricing-features">
+                        <li class="pricing-feature">
+                            <i class="fas fa-check check-icon"></i>
+                            <span>12 professional reels monthly</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check check-icon"></i>
+                            <span>Premium branded assets</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check check-icon"></i>
+                            <span>Advanced trend integration</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check check-icon"></i>
+                            <span>24-hour turnaround</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check check-icon"></i>
+                            <span>Dedicated account manager</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check check-icon"></i>
+                            <span>Weekly strategy sessions</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check check-icon"></i>
+                            <span>Performance analytics reports</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="#contact" class="btn-secondary" style="width: 100%; text-align: center; display: block; padding: 1rem; border-color: var(--accent); color: var(--accent);">Go Premium</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section bg-secondary">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our <span class="gradient-text">Clients Say</span></h2>
+                <p class="section-description">Real results from real small businesses who trusted BlueMedia to transform their social media presence.</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="glow-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                    </div>
+                    <blockquote class="testimonial-content">
+                        "BlueMedia transformed our barbershop's social media presence! We went from 200 followers to 15K in just 3 months. The reels they create showcase our work perfectly and bring in new customers weekly."
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" alt="Mike Rodriguez" class="author-avatar">
+                        <div>
+                            <div class="author-name">Mike Rodriguez</div>
+                            <div class="author-title">Owner, Elite Cuts Barbershop</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glow-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                    </div>
+                    <blockquote class="testimonial-content">
+                        "The reels BlueMedia creates for our real estate listings are incredible. Our property videos now get 10x more views and we've closed 40% more deals since working with them. Absolutely game-changing!"
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b300?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" alt="Sarah Chen" class="author-avatar">
+                        <div>
+                            <div class="author-name">Sarah Chen</div>
+                            <div class="author-title">Real Estate Agent, Century 21</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glow-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                    </div>
+                    <blockquote class="testimonial-content">
+                        "Our gym membership signups increased by 200% after BlueMedia started creating our workout reels. They capture the energy and motivation perfectly. Best investment we've made for our business!"
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" alt="David Kim" class="author-avatar">
+                        <div>
+                            <div class="author-name">David Kim</div>
+                            <div class="author-title">Owner, FitZone Gym</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Create <span class="gradient-text">Reels That Sell</span> Your Business</h2>
+                <p class="section-description">Ready to transform your social media presence? Book a free strategy call and let's discuss how we can help your business go viral.</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="glow-card">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;">Book Your Free Strategy Call</h3>
+                    
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">First Name</label>
+                                <input type="text" class="form-input" name="firstName" placeholder="John" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" class="form-input" name="lastName" placeholder="Doe" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Business Name</label>
+                            <input type="text" class="form-input" name="businessName" placeholder="Your Business Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Industry</label>
+                            <select class="form-select" name="industry" required>
+                                <option value="">Select your industry</option>
+                                <option value="barber-salon">Barber Shop / Salon</option>
+                                <option value="real-estate">Real Estate</option>
+                                <option value="healthcare">Healthcare / Medical</option>
+                                <option value="fitness">Fitness / Gym</option>
+                                <option value="restaurant">Restaurant / Food</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-input" name="phone" placeholder="+1 (555) 123-4567" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-input" name="email" placeholder="john@business.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Tell us about your goals</label>
+                            <textarea class="form-textarea" name="goals" rows="4" placeholder="What are you hoping to achieve with video marketing?"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">Book My Free Strategy Call</button>
+                        
+                        <div id="successMessage" class="success-message">
+                            <i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>
+                            Thank you! We'll contact you within 24 hours to schedule your strategy call.
+                        </div>
+                    </form>
+                </div>
+                
+                <div>
+                    <div class="glow-card" style="margin-bottom: 2rem;">
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">Quick Contact Options</h3>
+                        
+                        <div class="contact-options">
+                            <a href="https://wa.me/1234567890" class="contact-option">
+                                <div class="contact-icon" style="background: hsla(120, 60%, 50%, 0.2);">
+                                    <i class="fab fa-whatsapp" style="color: #10B981;"></i>
+                                </div>
+                                <div class="contact-info">
+                                    <h4>WhatsApp</h4>
+                                    <p>Get instant responses</p>
+                                </div>
+                            </a>
+                            
+                            <a href="mailto:hello@bluemedia.com" class="contact-option">
+                                <div class="contact-icon" style="background: hsla(217, 91%, 60%, 0.2);">
+                                    <i class="fas fa-envelope" style="color: var(--primary);"></i>
+                                </div>
+                                <div class="contact-info">
+                                    <h4>Email</h4>
+                                    <p>hello@bluemedia.com</p>
+                                </div>
+                            </a>
+                            
+                            <a href="tel:+1234567890" class="contact-option">
+                                <div class="contact-icon" style="background: hsla(189, 100%, 50%, 0.2);">
+                                    <i class="fas fa-phone" style="color: var(--accent);"></i>
+                                </div>
+                                <div class="contact-info">
+                                    <h4>Phone</h4>
+                                    <p>+1 (234) 567-8900</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="glow-card">
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">Download Our Service Guide</h3>
+                        <p style="color: var(--muted-foreground); margin-bottom: 1.5rem;">Get our comprehensive guide to viral video marketing for small businesses, including industry-specific strategies and case studies.</p>
+                        <a href="#" class="btn-secondary" style="width: 100%; text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                            <i class="fas fa-download"></i>
+                            Download Free Guide
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">
+                        <a href="#" class="logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <span class="logo-text">BlueMedia</span>
+                        </a>
+                    </div>
+                    <p class="footer-description">The #1 video marketing agency for small businesses. We create viral reels that drive real results and help local businesses thrive in the digital age.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Reel Editing</a></li>
+                        <li><a href="#" class="footer-link">Trend Creation</a></li>
+                        <li><a href="#" class="footer-link">Branded Templates</a></li>
+                        <li><a href="#" class="footer-link">Monthly Packages</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Portfolio</a></li>
+                        <li><a href="#" class="footer-link">Case Studies</a></li>
+                        <li><a href="#" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BlueMedia. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('hidden');
+        }
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Add animation styles to cards
+        document.querySelectorAll('.glow-card, .portfolio-item').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add active state to navigation links
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPos = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const top = section.offsetTop;
+                const bottom = top + section.offsetHeight;
+                const id = section.getAttribute('id');
+                const navLink = document.querySelector(`.nav-link[href="#${id}"]`);
+
+                if (scrollPos >= top && scrollPos <= bottom) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.style.color = 'var(--muted-foreground)';
+                    });
+                    if (navLink) {
+                        navLink.style.color = 'var(--primary)';
+                    }
+                }
+            });
+        });
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05) translateY(-5px)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) translateY(0)';
+            });
+        });
+
+        // Enhanced button hover effects
+        document.querySelectorAll('.btn-primary, .cta-button, .submit-button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px) scale(1.05)';
+                this.style.boxShadow = '0 0 40px hsla(217, 91%, 60%, 0.5)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = '0 0 20px hsla(217, 91%, 60%, 0.3)';
+            });
+        });
+    </script>
+</body>
+</html>

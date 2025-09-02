@@ -1,0 +1,239 @@
+---
+layout: default
+---
+
+<article class="blog-post">
+    <div class="container">
+        <div class="blog-post-header">
+            <div class="blog-post-meta">
+                <span class="blog-date">{{ page.date | date: "%B %d, %Y" }}</span>
+                {% if page.category %}
+                <span class="blog-category">{{ page.category }}</span>
+                {% endif %}
+            </div>
+            <h1 class="blog-post-title">{{ page.title }}</h1>
+            {% if page.description %}
+            <p class="blog-post-description">{{ page.description }}</p>
+            {% endif %}
+            {% if page.image %}
+            <div class="blog-post-image">
+                <img src="{{ page.image }}" alt="{{ page.title }}">
+            </div>
+            {% endif %}
+        </div>
+        
+        <div class="blog-post-content">
+            {{ content }}
+        </div>
+        
+        <div class="blog-post-footer">
+            <div class="blog-post-tags">
+                {% if page.tags %}
+                <h4>Tags:</h4>
+                <div class="tag-list">
+                    {% for tag in page.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            
+            <div class="blog-post-navigation">
+                {% if page.previous.url %}
+                <a href="{{ page.previous.url | relative_url }}" class="blog-nav-link prev">
+                    <i class="fas fa-chevron-left"></i>
+                    <span>{{ page.previous.title | truncate: 30 }}</span>
+                </a>
+                {% endif %}
+                
+                {% if page.next.url %}
+                <a href="{{ page.next.url | relative_url }}" class="blog-nav-link next">
+                    <span>{{ page.next.title | truncate: 30 }}</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</article>
+
+<style>
+.blog-post {
+    padding: 8rem 0 4rem;
+    min-height: 100vh;
+}
+
+.blog-post-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blog-post-meta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+}
+
+.blog-date {
+    color: var(--muted-foreground);
+}
+
+.blog-category {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.blog-post-title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.blog-post-description {
+    font-size: 1.25rem;
+    color: var(--muted-foreground);
+    margin-bottom: 2rem;
+}
+
+.blog-post-image {
+    margin-bottom: 2rem;
+}
+
+.blog-post-image img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: var(--radius);
+}
+
+.blog-post-content {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+}
+
+.blog-post-content h2 {
+    font-size: 2rem;
+    margin: 2rem 0 1rem;
+    color: var(--primary);
+}
+
+.blog-post-content h3 {
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.blog-post-content p {
+    margin-bottom: 1.5rem;
+}
+
+.blog-post-content ul,
+.blog-post-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.blog-post-content li {
+    margin-bottom: 0.5rem;
+}
+
+.blog-post-content blockquote {
+    border-left: 4px solid var(--primary);
+    padding-left: 1rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--muted-foreground);
+}
+
+.blog-post-content code {
+    background: var(--secondary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.blog-post-footer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+.blog-post-tags {
+    margin-bottom: 2rem;
+}
+
+.blog-post-tags h4 {
+    margin-bottom: 1rem;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    background: var(--secondary);
+    color: var(--foreground);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+}
+
+.blog-post-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.blog-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: var(--secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--foreground);
+    transition: all 0.3s;
+    flex: 1;
+    max-width: 250px;
+}
+
+.blog-nav-link:hover {
+    border-color: var(--primary);
+    background: var(--primary);
+    color: var(--primary-foreground);
+}
+
+.blog-nav-link.prev {
+    text-align: left;
+}
+
+.blog-nav-link.next {
+    text-align: right;
+    margin-left: auto;
+}
+
+@media (max-width: 768px) {
+    .blog-post-title {
+        font-size: 2rem;
+    }
+    
+    .blog-post-navigation {
+        flex-direction: column;
+    }
+    
+    .blog-nav-link.next {
+        margin-left: 0;
+    }
+}
+</style>

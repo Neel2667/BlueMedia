@@ -1,0 +1,67 @@
+# Site settings
+title: BlueMedia
+description: Professional video editing services for viral social media content
+url: https://yourusername.github.io
+baseurl: /bluemedia
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /blog/:year/:month/:day/:title/
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+
+# Exclude files
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# SEO settings
+author: BlueMedia Team
+twitter:
+  username: bluemedia
+facebook:
+  app_id: 
+  publisher: 
+  admins: 
+
+# Social links
+social:
+  instagram: https://instagram.com/bluemedia
+  tiktok: https://tiktok.com/@bluemedia
+  youtube: https://youtube.com/bluemedia
+  linkedin: https://linkedin.com/company/bluemedia
+  facebook: https://facebook.com/bluemedia
+  twitter: https://twitter.com/bluemedia
+
+# Contact settings
+email: hello@bluemedia.com
+phone: +1 (555) 123-4567
+
+# Form settings
+formspree_endpoint: https://formspree.io/f/your-form-id
+
+# Analytics (optional)
+google_analytics: UA-XXXXXXXX-X
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: BlueMedia Team
